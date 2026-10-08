@@ -90,7 +90,7 @@
   .confian-sec { background: var(--blanco); padding-block: 88px 72px; }
   .encabezado-seccion.centrado { margin-inline: auto; text-align: center; max-width: 760px; }
   .encabezado-seccion.centrado p { text-align: center; }
-  .logos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .logos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .logos li { display: grid; place-items: center; height: 150px; padding: 26px 34px; background: var(--blanco); border: 1px solid var(--azul-linea); border-top: 4px solid var(--champagne); transition: transform .2s, box-shadow .2s; }
   .logos li:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(30, 57, 87, .12); }
   .logos img { max-height: 70px; max-width: 100%; width: auto; height: auto; object-fit: contain; }
@@ -194,6 +194,7 @@
     .servicios { grid-template-columns: 1fr 1fr; }
     .servicio, .servicio:nth-child(3n) { margin-right: 0; padding-right: 20px; }
     .identidad, .razones { grid-template-columns: 1fr; gap: 28px; }
+    .logos { grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .logos li { height: 124px; padding: 20px 22px; }
     .logos img { max-height: 56px; }
     .cobertura-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -206,7 +207,6 @@
     body { font-size: 16px; }
     .servicios, .pasos, .funciones { grid-template-columns: 1fr; }
     .logos { grid-template-columns: 1fr 1fr; gap: 12px; }
-    .logos li:last-child { grid-column: 1 / -1; }
     .logos li { height: 104px; }
     .servicio { padding-right: 0; }
     .dato { grid-template-columns: 1fr; gap: 4px; }
@@ -289,7 +289,6 @@
       <ul class="logos" aria-label="Clientes de DAXA">
           <li><img src="img/clientes/ayvens.png" alt="Ayvens" loading="lazy"></li>
           <li><img src="img/clientes/sfleet.png" alt="SFleet" loading="lazy"></li>
-          <li><span class="marca">Prestemos</span></li>
           <li><img src="img/clientes/tupperware.png" alt="Tupperware" loading="lazy"></li>
           <li><img src="img/clientes/gruma.png" alt="Gruma" loading="lazy"></li>
           <li><img src="img/clientes/tip.png" alt="TIP Auto" loading="lazy"></li>
