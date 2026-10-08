@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DAXA Innovación | Asesoría y gestión vehicular</title>
+<meta name="description" content="DAXA Innovación gestiona trámites vehiculares para flotillas y empresas: placas, tarjetas de circulación, verificaciones, multas, liberación de vehículos y más, con seguimiento en línea.">
+<meta property="og:title" content="DAXA Innovación | Asesoría y gestión vehicular">
+<meta property="og:description" content="Trámites vehiculares para flotillas y empresas, con seguimiento en línea y documentos digitales.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://daxainnovacion.com/">
+<meta property="og:image" content="https://daxainnovacion.com/img/logo-principal.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap">
+<style>
+  :root {
+    --azul: #1E3957;
+    --azul-profundo: #162B43;
+    --azul-tinte: #E8ECF1;
+    --azul-linea: #D5DCE5;
+    --champagne: #D2B68A;
+    --champagne-tinte: #F6F0E6;
+    --champagne-texto: #8A6D3B;
+    --blanco: #FFFFFF;
+    --texto: #1E3957;
+    --texto-suave: #55657A;
+    --display: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --cuerpo: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --ancho: 1160px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--blanco); color: var(--texto); font: 400 17px/1.65 var(--cuerpo); -webkit-font-smoothing: antialiased; }
+  img, svg { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .contenedor { width: min(var(--ancho), 100% - 40px); margin-inline: auto; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.12; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+  .etiqueta { font: 700 12px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--champagne-texto); margin: 0 0 22px; }
+  .sobre-azul .etiqueta, .portada .etiqueta { color: var(--champagne); }
+  :focus-visible { outline: 3px solid var(--champagne); outline-offset: 3px; }
+
+  /* Encabezado */
+  .cabecera { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--azul-linea); }
+  .cabecera .contenedor { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px; }
+  .cabecera img { height: 44px; width: auto; }
+  .menu { display: flex; align-items: center; gap: 30px; font: 600 14px/1 var(--display); }
+  .menu a { text-decoration: none; padding: 8px 0; border-bottom: 2px solid transparent; }
+  .menu a:hover { border-color: var(--champagne); }
+  .boton { display: inline-flex; align-items: center; gap: 10px; font: 700 14px/1 var(--display); letter-spacing: .03em; text-decoration: none; padding: 16px 26px; border: 2px solid var(--azul); background: var(--azul); color: var(--blanco); transition: background .2s, color .2s, border-color .2s; }
+  .boton:hover { background: var(--champagne); border-color: var(--champagne); color: var(--azul); }
+  .boton.claro { background: transparent; border-color: var(--champagne); color: var(--champagne); }
+  .boton.claro:hover { background: var(--champagne); color: var(--azul); }
+  .menu .boton { padding: 12px 20px; }
+
+  /* Portada */
+  .portada { background: var(--azul); color: var(--blanco); position: relative; overflow: hidden; }
+  .portada .contenedor { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; min-height: 600px; padding-block: 72px; }
+  .portada h1 { font-size: clamp(36px, 5.2vw, 62px); font-weight: 800; }
+  .portada h1 span { color: var(--champagne); }
+  .portada p.lead { font-size: 19px; color: #D7DFE9; max-width: 54ch; margin: 26px 0 36px; }
+  .acciones { display: flex; flex-wrap: wrap; gap: 14px; }
+  .portada .boton { background: var(--champagne); border-color: var(--champagne); color: var(--azul); }
+  .portada .boton:hover { background: var(--blanco); border-color: var(--blanco); }
+  .portada .boton.claro { background: transparent; color: var(--champagne); }
+  .portada .boton.claro:hover { background: var(--champagne); color: var(--azul); border-color: var(--champagne); }
+  .arte { align-self: stretch; min-height: 380px; }
+  .arte svg { width: 100%; height: 100%; }
+
+  /* Secciones */
+  section { padding-block: 96px; }
+  .encabezado-seccion { max-width: 720px; margin-bottom: 52px; }
+  .encabezado-seccion h2 { font-size: clamp(28px, 3.6vw, 42px); }
+  .encabezado-seccion p { color: var(--texto-suave); font-size: 18px; margin: 18px 0 0; }
+
+  /* Para quién */
+  .franja { background: var(--champagne-tinte); padding-block: 30px; border-block: 1px solid #EADFC9; }
+  .franja ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 14px 52px; justify-content: flex-start; font: 700 13px/1.3 var(--display); letter-spacing: .08em; text-transform: uppercase; }
+  .franja li strong { font-weight: 800; color: var(--azul); }
+  .franja li::before { content: ""; display: inline-block; width: 9px; height: 9px; background: var(--champagne); margin-right: 12px; }
+
+  /* Servicios */
+  .servicios { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 3px solid var(--azul); }
+  .servicio { padding: 30px 26px 34px 0; margin-right: 26px; border-right: 1px solid var(--azul-linea); }
+  .servicio:last-child { border-right: 0; margin-right: 0; }
+  .servicio h3 { font-size: 18px; margin-bottom: 18px; }
+  .servicio ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 16px; color: var(--texto-suave); }
+  .servicio li { padding-left: 18px; position: relative; }
+  .servicio li::before { content: ""; position: absolute; left: 0; top: .72em; width: 8px; height: 2px; background: var(--champagne); }
+  .nota { margin-top: 36px; color: var(--texto-suave); font-size: 16px; }
+
+  /* Cómo trabajamos */
+  .metodo { background: var(--azul-tinte); }
+  .pasos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: paso; }
+  .paso { position: relative; padding: 34px 28px 10px 0; counter-increment: paso; }
+  .paso::before { content: counter(paso); font: 800 46px/1 var(--display); color: var(--champagne-texto); display: block; margin-bottom: 18px; }
+  .paso::after { content: ""; position: absolute; top: 0; left: 0; right: 24px; height: 3px; background: var(--azul); }
+  .paso h3 { font-size: 19px; margin-bottom: 10px; }
+  .paso p { margin: 0; color: var(--texto-suave); font-size: 16px; }
+
+  /* Plataforma */
+  .plataforma { background: var(--azul); color: var(--blanco); }
+  .plataforma .contenedor { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: center; }
+  .plataforma h2 { font-size: clamp(28px, 3.6vw, 42px); }
+  .plataforma p { color: #D7DFE9; margin: 20px 0 32px; font-size: 18px; max-width: 50ch; }
+  .funciones { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(210,182,138,.35); border: 1px solid rgba(210,182,138,.35); }
+  .funcion { background: var(--azul-profundo); padding: 26px 24px; }
+  .funcion h3 { font-size: 16px; color: var(--champagne); margin-bottom: 8px; }
+  .funcion p { margin: 0; font-size: 15px; color: #C9D3DF; }
+
+  /* Contacto */
+  .contacto .contenedor { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .contacto h2 { font-size: clamp(28px, 3.6vw, 42px); }
+  .contacto p { color: var(--texto-suave); font-size: 18px; margin: 20px 0 30px; max-width: 46ch; }
+  .contacto .formulario { margin-top: 8px; }
+  .datos { display: grid; gap: 0; border-top: 3px solid var(--azul); }
+  .dato { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--azul-linea); }
+  .dato dt { font: 700 12px/1.6 var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--champagne-texto); }
+  .dato dd { margin: 0; font-size: 18px; }
+  .dato a { text-decoration-color: var(--champagne); text-underline-offset: 4px; text-decoration-thickness: 2px; }
+
+  /* Nosotros y clientes */
+  .identidad { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; border-top: 3px solid var(--azul); padding-top: 32px; }
+  .identidad h3, .razones h3 { font-size: 22px; margin-bottom: 14px; }
+  .identidad p, .razones p { margin: 0; color: var(--texto-suave); }
+  .valores { list-style: none; margin: 40px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+  .valores li { font: 700 14px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; padding: 14px 20px; border: 2px solid var(--azul); }
+  .razones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 3px solid var(--azul); }
+  .razones article { padding: 30px 28px 10px 0; margin-right: 28px; border-right: 1px solid var(--azul-linea); }
+  .razones article:last-child { border-right: 0; margin-right: 0; }
+  .confian { margin: 40px 0 0; font-size: 17px; color: var(--texto-suave); }
+  .confian strong { color: var(--azul); }
+
+  .formulario { display: grid; gap: 16px; max-width: 520px; }
+  .formulario .fila { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .formulario label { display: grid; gap: 6px; font: 700 12px/1.2 var(--display); letter-spacing: .1em; text-transform: uppercase; color: var(--texto-suave); }
+  .formulario input, .formulario textarea { font: 400 16px/1.4 var(--cuerpo); color: var(--texto); padding: 13px 14px; border: 1.5px solid var(--azul-linea); background: var(--blanco); border-radius: 0; text-transform: none; letter-spacing: 0; }
+  .formulario input:focus, .formulario textarea:focus { outline: 3px solid var(--champagne); outline-offset: 0; border-color: var(--azul); }
+  .formulario .boton { justify-self: start; cursor: pointer; }
+  .formulario small { color: var(--texto-suave); font-size: 13px; }
+
+  /* Pie */
+  footer { background: var(--azul-profundo); color: #B9C5D3; padding-block: 44px; font-size: 14px; }
+  footer .contenedor { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
+  footer img { height: 40px; width: auto; }
+  footer a { color: var(--champagne); }
+
+  @media (max-width: 960px) {
+    .portada .contenedor, .plataforma .contenedor, .contacto .contenedor { grid-template-columns: 1fr; gap: 40px; }
+    .portada .contenedor { min-height: 0; padding-block: 56px; }
+    .arte { min-height: 260px; order: -1; max-height: 300px; }
+    .servicios { grid-template-columns: 1fr 1fr; }
+    .identidad, .razones { grid-template-columns: 1fr; gap: 28px; }
+    .razones article { border-right: 0; margin-right: 0; padding: 24px 0 10px; border-bottom: 1px solid var(--azul-linea); }
+    .servicio { border-right: 0; margin-right: 0; padding-right: 20px; border-bottom: 1px solid var(--azul-linea); }
+    .pasos { grid-template-columns: 1fr 1fr; row-gap: 20px; }
+    .menu a:not(.boton) { display: none; }
+    section { padding-block: 72px; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .servicios, .pasos, .funciones { grid-template-columns: 1fr; }
+    .dato { grid-template-columns: 1fr; gap: 4px; }
+    .cabecera img { height: 38px; }
+    .franja ul { gap: 12px 30px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="contenedor">
+    <a href="#inicio" aria-label="DAXA Innovación, inicio"><img src="img/logo-positivo.png" alt="DAXA Innovación" width="104" height="44"></a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#metodo">Cómo trabajamos</a>
+      <a href="#plataforma">Plataforma</a>
+      <a href="#contacto">Contacto</a>
+      <a class="boton" href="https://daxadrivesolutions.mx/" target="_blank" rel="noopener">Acceso clientes</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="portada">
+    <div class="contenedor">
+      <div>
+        <p class="etiqueta">Asesoría y gestión vehicular</p>
+        <h1>Tus trámites vehiculares, <span>resueltos y a la vista.</span></h1>
+        <p class="lead">Más de 10 años gestionando trámites vehiculares a nivel nacional: placas, tarjetas de circulación, verificaciones, multas y liberación de vehículos, con seguimiento en línea y documentos digitales de cada folio.</p>
+        <div class="acciones">
+          <a class="boton" href="#contacto">Solicitar información</a>
+          <a class="boton claro" href="https://daxadrivesolutions.mx/" target="_blank" rel="noopener">Acceso clientes</a>
+        </div>
+      </div>
+      <div class="arte" aria-hidden="true">
+        <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
+          <g fill="none" stroke="#D2B68A" stroke-linecap="square">
+            <path d="M120,40 h170 a200,200 0 0 1 0,400 h-170" stroke-width="7" stroke-opacity=".95"/>
+            <path d="M140,80 h140 a160,160 0 0 1 0,320 h-140" stroke-width="6" stroke-opacity=".75"/>
+            <path d="M160,120 h110 a120,120 0 0 1 0,240 h-110" stroke-width="5" stroke-opacity=".6"/>
+            <path d="M180,160 h80 a80,80 0 0 1 0,160 h-80" stroke-width="4" stroke-opacity=".45"/>
+            <path d="M200,200 h50 a40,40 0 0 1 0,80 h-50" stroke-width="3" stroke-opacity=".35"/>
+          </g>
+          <g fill="#D2B68A"><rect x="30" y="84" width="34" height="34" fill-opacity=".95"/><rect x="78" y="168" width="20" height="20" fill-opacity=".7"/><rect x="24" y="236" width="24" height="24" fill-opacity=".5"/><rect x="92" y="40" width="14" height="14" fill-opacity=".6"/></g>
+          <g stroke="#D2B68A" fill="none">
+            <line x1="0" y1="470" x2="520" y2="470" stroke-opacity=".25" stroke-width="2"/>
+            <line x1="260" y1="470" x2="-40" y2="560" stroke-opacity=".5" stroke-width="3"/>
+            <line x1="260" y1="470" x2="560" y2="560" stroke-opacity=".5" stroke-width="3"/>
+            <line x1="260" y1="478" x2="260" y2="494" stroke-opacity=".8" stroke-width="3"/>
+            <line x1="260" y1="506" x2="260" y2="530" stroke-opacity=".8" stroke-width="5"/>
+            <line x1="260" y1="542" x2="260" y2="560" stroke-opacity=".8" stroke-width="7"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="franja">
+    <div class="contenedor">
+      <ul aria-label="DAXA en cifras">
+        <li><strong>+10 años</strong> de experiencia</li>
+        <li><strong>+15 estados</strong> con presencia</li>
+        <li><strong>Línea de crédito</strong> para grandes volúmenes</li>
+        <li><strong>Atención personalizada</strong> en cada trámite</li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="servicios">
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <p class="etiqueta">Servicios</p>
+        <h2>Todo el ciclo documental de tu parque vehicular</h2>
+        <p>Un solo equipo que conoce la normatividad de cada entidad y se hace responsable del trámite hasta que concluye.</p>
+      </div>
+      <div class="servicios">
+        <div class="servicio">
+          <h3>Placas y circulación</h3>
+          <ul><li>Alta y baja de placas</li><li>Reemplacamiento</li><li>Tarjeta de circulación: reposición y revalidación</li><li>Cambio de propietario</li><li>Alta de vehículo nuevo</li></ul>
+        </div>
+        <div class="servicio">
+          <h3>Obligaciones vehiculares</h3>
+          <ul><li>Verificación vehicular</li><li>Pago de tenencia</li><li>Certificación de tenencias</li><li>Pago de multas</li></ul>
+        </div>
+        <div class="servicio">
+          <h3>Asuntos legales</h3>
+          <ul><li>Liberación de vehículo en depósito o corralón</li><li>Actas de extravío</li><li>Copias certificadas ante el Ministerio Público</li></ul>
+        </div>
+        <div class="servicio">
+          <h3>Control de flotilla</h3>
+          <ul><li>Seguimiento de cada folio en línea</li><li>Vencimientos de tarjeta, verificación y póliza</li><li>Documentos concluidos y facturas en un solo lugar</li></ul>
+        </div>
+      </div>
+      <p class="nota">¿No ves el trámite que necesitas? Escríbenos: gestionamos también casos particulares.</p>
+    </div>
+  </section>
+
+  <section id="metodo" class="metodo">
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <p class="etiqueta">Cómo trabajamos</p>
+        <h2>Un proceso claro, de la solicitud al documento concluido</h2>
+      </div>
+      <div class="pasos">
+        <div class="paso"><h3>Solicitas</h3><p>Registras el trámite en nuestro portal o con tu ejecutiva, con los datos del vehículo.</p></div>
+        <div class="paso"><h3>Asignamos</h3><p>Una ejecutiva revisa tu solicitud, valida la información y se convierte en tu contacto directo.</p></div>
+        <div class="paso"><h3>Gestionamos</h3><p>Realizamos el trámite ante la autoridad y tú ves el avance real en cada etapa.</p></div>
+        <div class="paso"><h3>Concluimos</h3><p>Recibes el documento digitalizado y tu factura, listos para tu expediente.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="plataforma" class="plataforma sobre-azul">
+    <div class="contenedor">
+      <div>
+        <p class="etiqueta">Plataforma para clientes</p>
+        <h2>daxadrive: tus trámites, siempre a la vista</h2>
+        <p>Nuestros clientes solicitan, siguen y descargan todo desde un solo portal, sin llamadas ni correos para preguntar cómo va un folio.</p>
+        <a class="boton claro" href="https://daxadrivesolutions.mx/" target="_blank" rel="noopener">Entrar a daxadrive</a>
+      </div>
+      <div class="funciones">
+        <div class="funcion"><h3>Seguimiento por etapas</h3><p>Recibido, en atención, en gestión y concluido, con la fecha real de cada cambio.</p></div>
+        <div class="funcion"><h3>Documento concluido</h3><p>Descarga el resultado de cada trámite en cuanto se digitaliza.</p></div>
+        <div class="funcion"><h3>Facturas por folio</h3><p>Consulta importes y facturas de cada trámite sin pedirlas.</p></div>
+        <div class="funcion"><h3>Flotilla y vencimientos</h3><p>Tarjeta de circulación, verificación y póliza con alertas de próximo vencimiento.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="nosotros">
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <p class="etiqueta">Nosotros</p>
+        <h2>Comprometidos con soluciones confiables y eficientes</h2>
+      </div>
+      <div class="identidad">
+        <article><h3>Misión</h3><p>Ser el primer proveedor de trámites de nuestros clientes, facilitando la gestión vehicular en el menor tiempo posible, con seguridad y profesionalismo, garantizando siempre su satisfacción con cada uno de los servicios asignados.</p></article>
+        <article><h3>Visión</h3><p>Ser una empresa reconocida a nivel nacional, obteniendo un crecimiento cada vez más amplio en el mercado, siempre cuidando las necesidades de nuestros clientes y manteniendo una relación de armonía con ellos.</p></article>
+      </div>
+      <ul class="valores" aria-label="Nuestros valores">
+        <li>Responsabilidad</li><li>Honestidad</li><li>Empatía</li><li>Transparencia</li><li>Sustentabilidad</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="clientes" class="metodo">
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <p class="etiqueta">Clientes</p>
+        <h2>¿Por qué elegir a DAXA?</h2>
+        <p>Cada trámite que gestionamos es una muestra de la confianza que depositan en nosotros. Por eso trabajamos para ofrecerte más que un servicio: soluciones completas y personalizadas.</p>
+      </div>
+      <div class="razones">
+        <article><h3>Cobertura amplia</h3><p>Con presencia en más de 15 estados, garantizamos una atención eficiente donde nos necesites.</p></article>
+        <article><h3>Línea de crédito</h3><p>Para empresas con grandes volúmenes de trámites, ofrecemos opciones de financiamiento que se ajustan a sus necesidades.</p></article>
+        <article><h3>Atención personalizada</h3><p>Cada cliente es único: nuestro equipo te acompaña en cada paso del proceso para que tengas la mejor experiencia.</p></article>
+      </div>
+      <p class="confian">Empresas que ya confían en DAXA: <strong>Nexu</strong> · <strong>Gruma</strong> · <strong>Axtel</strong> · <strong>Grupo Andrade</strong> · <strong>Tupperware</strong></p>
+    </div>
+  </section>
+
+  <section id="contacto" class="contacto">
+    <div class="contenedor">
+      <div>
+        <p class="etiqueta">Contacto</p>
+        <h2>Hablemos de los trámites de tu flotilla</h2>
+        <p>Cuéntanos qué necesitas y te respondemos con una propuesta clara de cómo podemos ayudarte.</p>
+        <form class="formulario" id="formulario" aria-label="Formulario de contacto">
+          <div class="fila"><label>Nombre<input name="nombre" autocomplete="given-name" required></label><label>Apellido<input name="apellido" autocomplete="family-name"></label></div>
+          <label>Correo electrónico<input type="email" name="correo" autocomplete="email" required></label>
+          <label>Empresa<input name="empresa" autocomplete="organization"></label>
+          <label>Mensaje<textarea name="mensaje" rows="4" required></textarea></label>
+          <button class="boton" type="submit">Enviar mensaje</button>
+          <small>Al enviar se abre tu correo con el mensaje listo. Consulta nuestro <a href="privacidad.html">aviso de privacidad</a>.</small>
+        </form>
+      </div>
+      <dl class="datos">
+        <div class="dato"><dt>Teléfono</dt><dd><a href="tel:+525563761319">55 6376 1319</a></dd></div>
+        <div class="dato"><dt>Correo</dt><dd><a href="mailto:francisco.diaz@daxainnovacion.com">francisco.diaz@daxainnovacion.com</a></dd></div>
+        <div class="dato"><dt>Portal clientes</dt><dd><a href="https://daxadrivesolutions.mx/" target="_blank" rel="noopener">daxadrivesolutions.mx</a></dd></div>
+        <div class="dato"><dt>Cobertura</dt><dd>Más de 15 estados, a nivel nacional</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="contenedor">
+    <img src="img/logo-principal.png" alt="DAXA Innovación" width="94" height="40">
+    <span>Estado de México, México · © <span id="anio">2026</span> DAXA Innovación. Todos los derechos reservados. · <a href="privacidad.html">Aviso de privacidad</a> · <a href="https://daxadrivesolutions.mx/" target="_blank" rel="noopener">Acceso clientes</a></span>
+  </div>
+</footer>
+<script>
+document.getElementById("anio").textContent = new Date().getFullYear();
+document.getElementById("formulario").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var f = new FormData(e.target);
+  var cuerpo = "Nombre: " + f.get("nombre") + " " + (f.get("apellido") || "") + "\nCorreo: " + f.get("correo") + "\nEmpresa: " + (f.get("empresa") || "-") + "\n\n" + f.get("mensaje");
+  location.href = "mailto:francisco.diaz@daxainnovacion.com?subject=" + encodeURIComponent("Contacto desde daxainnovacion.com") + "&body=" + encodeURIComponent(cuerpo);
+});
+</script>
+</body>
+</html>
