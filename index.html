@@ -82,8 +82,19 @@
   /* Para quién */
   .franja { background: var(--champagne-tinte); padding-block: 30px; border-block: 1px solid #EADFC9; }
   .franja ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 40px; justify-content: flex-start; font: 700 13px/1.3 var(--display); letter-spacing: .08em; text-transform: uppercase; }
+  @media (min-width: 961px) { .franja ul { display: grid; grid-template-columns: repeat(4, auto); justify-content: space-between; } }
   .franja li strong { font-weight: 800; color: var(--azul); }
   .franja li::before { content: ""; display: inline-block; width: 9px; height: 9px; background: var(--champagne); margin-right: 12px; }
+
+  /* Clientes */
+  .confian-sec { background: var(--blanco); padding-block: 88px 72px; }
+  .encabezado-seccion.centrado { margin-inline: auto; text-align: center; max-width: 760px; }
+  .encabezado-seccion.centrado p { text-align: center; }
+  .logos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .logos li { display: grid; place-items: center; height: 150px; padding: 26px 34px; background: var(--blanco); border: 1px solid var(--azul-linea); border-top: 4px solid var(--champagne); transition: transform .2s, box-shadow .2s; }
+  .logos li:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(30, 57, 87, .12); }
+  .logos img { max-height: 70px; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+  .logos .marca { font: 800 clamp(22px, 2.6vw, 30px)/1 var(--display); color: var(--azul); letter-spacing: .01em; }
 
   /* Servicios */
   .servicios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 3px solid var(--azul); }
@@ -183,6 +194,8 @@
     .servicios { grid-template-columns: 1fr 1fr; }
     .servicio, .servicio:nth-child(3n) { margin-right: 0; padding-right: 20px; }
     .identidad, .razones { grid-template-columns: 1fr; gap: 28px; }
+    .logos li { height: 124px; padding: 20px 22px; }
+    .logos img { max-height: 56px; }
     .cobertura-grid { grid-template-columns: 1fr; gap: 32px; }
     .razones article { border-right: 0; margin-right: 0; padding: 24px 0 10px; border-bottom: 1px solid var(--azul-linea); }
     .pasos { grid-template-columns: 1fr 1fr; row-gap: 20px; }
@@ -192,6 +205,9 @@
   @media (max-width: 600px) {
     body { font-size: 16px; }
     .servicios, .pasos, .funciones { grid-template-columns: 1fr; }
+    .logos { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .logos li:last-child { grid-column: 1 / -1; }
+    .logos li { height: 104px; }
     .servicio { padding-right: 0; }
     .dato { grid-template-columns: 1fr; gap: 4px; }
     .cabecera img { height: 38px; }
@@ -207,6 +223,7 @@
     <a href="#inicio" aria-label="DAXA Innovación, inicio"><img src="img/logo-positivo.png" alt="DAXA Innovación" width="104" height="44"></a>
     <nav class="menu" aria-label="Principal">
       <a href="#servicios">Servicios</a>
+      <a href="#confian">Clientes</a>
       <a href="#cobertura">Cobertura</a>
       <a href="#plataforma">Plataforma</a>
       <a href="#nosotros">Nosotros</a>
@@ -261,6 +278,27 @@
       </ul>
     </div>
   </div>
+
+  <section id="confian" class="confian-sec">
+    <div class="contenedor">
+      <div class="encabezado-seccion centrado">
+        <p class="etiqueta">Nuestros clientes</p>
+        <h2>Empresas que ya confían en DAXA</h2>
+        <p>Arrendadoras, flotillas y empresas de todo el país nos confían la gestión de sus trámites vehiculares. Su confianza es nuestro mejor respaldo.</p>
+      </div>
+      <ul class="logos" aria-label="Clientes de DAXA">
+          <li><img src="img/clientes/ayvens.png" alt="Ayvens" loading="lazy"></li>
+          <li><img src="img/clientes/sfleet.png" alt="SFleet" loading="lazy"></li>
+          <li><span class="marca">Prestemos</span></li>
+          <li><img src="img/clientes/tupperware.png" alt="Tupperware" loading="lazy"></li>
+          <li><img src="img/clientes/gruma.png" alt="Gruma" loading="lazy"></li>
+          <li><img src="img/clientes/tip.png" alt="TIP Auto" loading="lazy"></li>
+          <li><span class="marca">JH Leasing</span></li>
+          <li><img src="img/clientes/chg.png" alt="CHG Meridian" loading="lazy"></li>
+          <li><img src="img/clientes/nexu.png" alt="Nexu" loading="lazy"></li>
+      </ul>
+    </div>
+  </section>
 
   <section id="servicios">
     <div class="contenedor">
@@ -386,7 +424,7 @@
         <article><h3>Línea de crédito</h3><p>Para empresas con grandes volúmenes de trámites, ofrecemos opciones de financiamiento que se ajustan a sus necesidades.</p></article>
         <article><h3>Atención personalizada</h3><p>Cada cliente es único: nuestro equipo te acompaña en cada paso del proceso para que tengas la mejor experiencia.</p></article>
       </div>
-      <p class="confian">Empresas que ya confían en DAXA: <strong>Nexu</strong> · <strong>Gruma</strong> · <strong>Axtel</strong> · <strong>Grupo Andrade</strong> · <strong>Tupperware</strong></p>
+
     </div>
   </section>
 
